@@ -1,0 +1,179 @@
+1.ibatis <resultMap>中的column属性列值  在对应的sql语句中必须出现
+ 如果在parameterClass=’map’ 抛异常，就加上java.util.HashMap
+2.维护文件时，时时考虑到是否影响其它地区正常使用。
+
+
+3.plsql 和其它程序一样，不过自己有自己语法。
+
+
+4. Vss上保安系统：新增的文件(无论是jsp,java,xml)，修改的jsp放在竖向菜单，修改的java,xml 放
+           在业务系统，地方的文件放在对应的地方目录下 ,每次修改之时，要拿最新代码
+
+
+5.group by 对查询的结果进行分组，但在列值的字段，必须在group by中
+
+6.where 与group by having 可以同时使用，where 过滤前面，having过滤后面
+
+7.select to_char(2012-11-12,'yyyy-mm-dd') from dual 是错误的 因为 2012-11-12这个不知是 
+ 什么类型的  select to_char(sysdate,'yyyy-mm-dd') from dual  对的
+ to_date('2014-04-11 00:00:00','yyyy-mm-dd hh24:mi:ss')
+
+8.java中\"转义字符
+9.jquery 中的each return并不能结束函数，return false 跳出循环
+  getGxdwAllTree()//加载所有
+10.ingrid:插件使用 页面首先初始化页面是加载插件所以得到url，loadPageXX(){setPageList()} 得到url同时把页面加载之前的id=tabledata的html保存下来，查询时要用。否则会报错.
+网页可见区域宽：document.body.clientWidth
+网页可见区域高：document.body.clientHeight
+网页可见区域宽：document.body.offsetWidth (包括边线的宽)
+网页可见区域高：document.body.offsetHeight (包括边线的宽)
+
+Ingrid插件使用：1.把原有table html 保存到全局变量里面(首次加载ingrid插件之后，table.html()的代码已经改变),2.获取url。3.调用插件
+11.user关联角色，角色关联菜单
+
+
+12service配置文件都是在一个文件中的。
+
+13.现场统计问题。
+   首先保证本地最新程序运行成功，正确。把补丁发到现场程序去，如果有问题，说明现场数据有问题
+
+14.action 层不要getXXService 方法，service层，需要getXX和setXX方法
+分页查询时，queryListpage()方法调用之前 会先调用 xxCount()查询查调用和调用viod queryListpage()(给page对象赋值)，源代码在BaseDao里面的
+
+15.技术经验：数据控制唯一性：1.主键 2.唯一标示3.状态标志
+16.oracle技能链接远程服务器又能链接本地数据库必须添加环境变量TNS_ADMIN=D:\oracle\product\10.2.0\client_1\NETWORK\ADMIN
+
+17.新增数据源要重启websphere，dm和节点。
+18.select qybm from t_bagssljbxx a where a.qybm <> null ; 是错误的， is not null 
+19.贵州保安没有户籍地派出所所长，民警核查的操作步骤
+
+20.简单视图：可以进行dml操作
+21.decode(p1,’xx’,’1’,’0’)含义：p1如果等于xx，返回1，否则返回0。一般运用在统计语句中，好处在于可以结合sum,count 函数进行统计，不写where 后面的条件，如果不用decode函数，后面接where条件，容易写死。不灵活。统计函数，是在查询结果集在进行统计的。
+22.触发器 在执行dml语句的时候(insert,delete,update )之前和之后的动作
+   报找不到表或者试图错误，可能是因为数据源引起的，同义词
+23.js中数组，array.push(a,b);将在数组后面加上a,b对象，array.unshift(a,b);讲数组前面加上a,b对象array.(‘.’);分隔符(.)来分隔数组中的元素。
+24.Apply  是js中的继承关键字，
+function Student(name,age,grade,school){    //学生类 
+	    Person.apply(this,arguments);//将Person对象运用到Student对象上（即strutden继承了person）
+	    Print.apply(null,arguments);//不继承
+	    this.grade=grade;                //年级 
+	    this.school=school;                 //学校 
+      }
+Prototype :js中，每个对象都有原型属性
+
+Jquery.fn.extend() 添加对象方法，jquery.extend();添加类方法。
+
+25.Js中，onclick(b);b是一个对象，传递字符串(onclick(\“ffff\”)); js字符串拼接时注意引号（最近匹配）   
+24.1)在js中，this的用法，this指当前调用函数的对象，且this在函数内部。例如 
+$(“#XX”).find(“td”).each(function()
+$(this).attr(‘id’,’2’);
+);
+2)变量的作用域，全局变量 范围很广，开发中尽量避免用全局变量， 方法内部的变量，在方法结束之后，就无效了。
+3)回调函数中变量，最好放在回调函数内部，如果在外部，到回调函数执行完成之后，变量值可能已经变了。
+26.一个业务的基本项(web)：增加，删除，查询，修改
+   A.增加 ,修改  数据验证.
+   B.查询 排序，查询条件，分页，验证,统计
+   C.删除 提示验证
+27.统计：先统计数据，合计这一行，可以再action中添加一个list元素，元素去合计，讲这个元素放到list里面。
+28.t_department 机构级别划分，代码值长度为12，例如(130102000000 河北石家庄市长安区分局)没2位代表一个级别，省厅 departlevel 为2，市局为3，分县局为4，派出所为5.如果是直辖市，对应的级别各自升一级，市局2，分县局3，派出所4；
+29.做事要保持冷静，沉稳。
+30.在tomcat 中发布新的项目，不需要修改配置CataLina_home 环境变量，但要配置java_home;步骤讲项目放在tomcat webapp 目录下。
+31.现场问题处理方式：确保程序无误，数据无误，流程无误。
+32.oracle 执行顺序，from ,where,group by , having ,order by ,select  
+33.Jquery bind 和unbind函数，如果一个元素已经绑定一个函数，然后undind这个数据，再次bind()是无效的，只有对这个元素写一个具体的事件
+34.tomcat堆，栈配置-XX:PermSize=128m -XX:MaxPermSize=256m -Xms512m -Xmx1280m 全部配置${jrebel_args} -XX:PermSize=128m -XX:MaxPermSize=256m -Dcatalina.base="D:\apache-tomcat-6.0.35" -Dcatalina.home="D:\apache-tomcat-6.0.35" -Dwtp.deploy="D:\apache-tomcat-6.0.35\wtpwebapps" -Djava.endorsed.dirs="D:\apache-tomcat-6.0.35\endorsed" -Xms512m -Xmx1280m
+
+35.1.5jdk不能晕jdk1.6编译的程序。1.6jdk可以1.5编译程序。
+36.注意表的同义词
+37.一个cronExpression表达式有至少6个（也可能是7个）由空格分隔的时间元素。从左至右，这些元素的定义如下秒，分，时，日，月，星期，年
+	0 0 10,14,16 * * ?
+	每天上午10点,下午2点和下午4点
+	0 0,15,30,45 * 1-10 * ?
+	每月前10天每隔15分钟
+	30 0 0 1 1 ? 2012
+	在2012年1月1日午夜过30秒时
+        0 0/5***?每分钟一次。
+38.netstat -an 查看活动连接
+39.tomcat 里面3个目录清理 temp work webapps/wtpwebapps
+
+40.regsvr32 命令
+41.oracle 左连接：使用（+）的注意事项：
+	a.（+）操作符只能出现在where子句中，并且不能与outer join语法同时使用。	
+	b.当使用（+）操作符执行外连接时，如果在where子句中包含有多个条件，则必须在所有条件中都包含（+）操作符。
+	c.（+）操作符只适用于列，而不能用在表达式上。
+	d.（+）操作符不能与or和in操作符一起使用。
+	e.（+）操作符只能用于实现左外连接和右外连接，而不能用于实现完全外连接。
+        select * from ldrkxx t,jzzsl l where t.ldrkid = l.ldrkid(+) and l.ywlxdm(+)='1'
+42.数据同步，indata是解包的，outdata是打包
+43.数据要尽早维护，否则数据越多，操作业务越多，后面更难维护
+44.alert(window.location.href)
+44.用户授权，如果报错，加with grant option 级联授权(授权一个用户，此用户也能授权给其他用户) 例如grant select on ldrksys.view_a to hbza with grant option;此例子视图跨用户2个
+45.ibatis中dynamic可以去掉第一个and 	where 
+	   <dynamic prepend=" ">
+	   		<isNotNull prepend="and" property="fwxxid">
+	   			fwxxid=#fwxxid#
+	   		</isNotNull>
+	   </dynamic>中间必须有空格
+46.oracle 客户端配置，要在环境变量中配置  键名：  TNS_ADMIN E:\oracle\product\10.2.0\client_1\NETWORK\ADMIN
+47.Active IE注册，把active包中的文件覆盖到system32，再执行regsvr32 +*.ocx
+48.修改流程之类的东西得需要文档记录或者邮件之类的东西
+49.oracle 分页查询在第一个select语句中把rownun查询出来，然后再在外面包一层接上where rownno>1 and rowno<=13
+   select x.* from(
+   select rownum rowno, fw.fwxxid,fw.wzdz,fw.dzxz,fw.fwcqxzdm,fw.fwcqxz,fw.fwpzdm,fw.fwpz,fw.fwjzjgdm,fw.fwjzjg from t_fwjbxx fw )
+    x where x.rowno>1 and x.rowno<=2
+    或者
+   select x.* from(
+   select rownum rowno, fw.fwxxid,fw.wzdz,fw.dzxz,fw.fwcqxzdm,fw.fwcqxz,fw.fwpzdm,fw.fwpz,fw.fwjzjgdm,fw.fwjzjg from t_fwjbxx fw where rownum<=13 )
+    x where x.rowno>1
+
+
+50.导出功能：内部实现excel是一样的，表头提交方式有所不同，get方式注意IE6的参数过长，不执行方法。解决此类问题
+   用form 表单形式，post方式。不能用jquery.post
+51.spring中的scheculer中的定时任务必须重启websphere，在更新大量数据时，一次性更新少点，更新频率高一点。
+52.注意锁表情况
+53.tree.getUserData(itemId,"departid");可以dhtmlXml中获取数据（公司内部）
+54.group by b.xm, b.zjhm 是xm and zjhm 分组的
+55.null 在数据库中，没有索引的概念，如果查询b.xx=null 是全表查询,删除字段时，如果字段上有索引，索引也一并删除。
+56.项目开发功能，不要盲目开发，分析清楚之后再做，需求的可行性，价值高不高。而且需要文档说明。
+57.项目没有整体测试过，流程不同，这种项目不能上线，如果上线出现问题，难以维护。只有当整个流程测试完整后，才能正式上线使用。
+58.内网同步过程。
+   a.打包过程 查询sqllog表 根据sqllog表的数据是通过触发器生成的。根据表名和sqlkey。如果打包成功，就会生成文件xml和sqllogback
+   b.解包的过程就是读取xml文件。
+59.多用户操作同一条数据时，避免并发产生问题。在执行update语句时去查询库。
+60.js函数中的return只能中断当前函数，如果函数中使用ajax时，在匿名函数function 中return，并不能终止外部函数。
+61.jquery.append()添加在内部。jquery.after()添加到外部
+62.oralce 导出dmp语句exp basysgz/basysgz@aisino201 file=d:\glryzmdzcl.dmp tables=(t_glryzmdzcl) query='"where glryzmdzclid = 7"'
+    oralce 导入dmp语句imp mansys/mansys@202 file=d:mansys.dmp fromuser=mansys touser=mansys
+    fromuser就是把当前的dmp文件中的某一个用户下的数据取出。touser就是把现在dmp文件中的数据导入到目标库的指定user下。
+63.oralce包下面的多个存储过程如果有一个错误，在调用其他的过程也会报错，只有全部编译通过才能调用。
+64.table 首先清楚有多少行， 单元格合并，包含自身那个单元格(colspan)。跨行合并（rowspan)在下一行开始，要算上合并的行，相当于合并行为公共的单元格
+65.jquery.attr('readonly',true),true不能写成字符串，即'true';
+66.create database link JZPTDL connect to JZPT(用户名) identified (密码)by xtcjzpt using '(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 10.72.28.183)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (sid = sjk)
+
+    )
+  )';这妥最好写上。
+
+67.oralce 中异常捕获后 	，程序不会终止 ，与否  begin 出现异常代码块 exception  when others then  处理内容 end;
+68.创建oracle表空间 create tablespace user_data  
+logging  
+datafile 'D:\oracle\oradata\Oracle9i\user_data.dbf' 
+size 50m  
+autoextend on  
+next 50m maxsize 20480m  
+extent management local;  
+--创建用户
+create user ldrksys identified by ldrksys default tablespace ldrksys ;
+grant dba to ldrksys;
+69.oralce left join where 查询顺序，先关联查询a表，b表 且不满足条件的a表数据(a表数据全部出来，b表不满足的数据补空)，在结果集筛选出满足where条件的数据
+
+69.spring 事务管理中，一定不能加try{}catch{}块，否则事务会失败
+70.内外网数据同步：
+   1.首先确定内外网表结构完全一致
+   2.配置同步程序，配置好后，需要重启同步程序，否则不会生效
+   打包原理：通过触发器，记录到sqllog日志表，再根据日志表找相应的逻辑数据。如果找不到同步软件会抛错找不到数据之类的信息。如果配置中没配置对应的表，则抛出在配置文件中未找到该表的配置，打包成功后，删除该条记录，在sqllogback中新增。
+   解包：按照序列值解（一次递增），序列值可以改。解包成功后在bak文件中，失败在error文件中。
+
