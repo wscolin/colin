@@ -1,0 +1,40 @@
+create or replace procedure insertczfwtjzjb  as
+
+
+begin
+  --统计流程人口总数
+   --for r in(select lc.lcrkid from t_lcrkxx lc where lc.djdwid is not null group by lc.lcrkid)  loop
+      -- for a in(select lc.djdwid ,lc.hjdxzqh,lc from t_lcrkxx lc where lc.lcrkid = r.lcrkid) loop
+
+      -- end loop;
+
+  -- end loop;
+
+  -- 统计流入人口
+ -- v_pcsgxdwid number(9);--派出所管辖单位id
+
+ -- v_gxdwbm t_department.departcode%type;--管辖单位编码
+  --v_bnyxcount number(15);--半年以下
+  --v_bnyswnyxcount number(15);--半年以上5年以下
+ -- v_wnyscount number;--五年以上
+--  v_rzrq date;--入住日期
+ -- v_jdlx t_zzdjxx.jzdlx%type;--居住地类型
+--  for r in(select pcsgxdwid from t_ldrkjbxx l group by l.pcsgxdwid) loop--根据登记单位分组
+    -- select l.pcsgxdwid into v_pcsgxdwid from t_ldrkjbxx l.ldrkid = r.pcsgxdwid;
+    /*select d.departcode into v_gxdwbm from t_department d where d.departid = v_pcsgxdwid;
+     --查询出该派出所管辖单位多少流动人口
+     for s in (select  l.ldrkid from t_ldrkjbxx l where l.pcsgxdwid = r.pcsgxdwid group by l.ldrkid) loop
+           select dj.rzrq,dj.jzdlx into v_rzrq,v_jdlx from t_zzdjxx dj where dj.djsj=select max(dj.djsj) from t_zzdjxx dj where dj.ldrkid = s.ldrkid
+           if (sysdate -v_rzrq)<182.5 then--半年以内
+              v_bnyxcount:=v_bnyxcount+1;
+           elsif  (sysdate -v_rzrq)>=182.5 and (sysdate -v_rzrq)<1825  then
+              v_bnyswnyxcount:=v_bnyswnyxcount+1;
+           elsif  (sysdate -v_rzrq)>=1825 then
+              v_wnyscount:=v_wnyscount+1;
+           end if;
+     end loop;*/
+     --insert into t_czfwtjzjb values ();
+
+-- end loop;
+
+end;
