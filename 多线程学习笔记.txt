@@ -1,7 +1,8 @@
 多线程：
 1.含义:一个进程里面包含多个线程。
 2.java中实现多线程有两种方式：a.继承Thread类，override方法run();
-                              b.实现Runnable接口，并实现方法run();
+                            b.实现Runnable接口，并实现方法run();
+                            c.实现callable接口，Callable有返回值，显示声明抛出异常。
 3.程序一旦启动至少有一线程(main线程)。在一个main方法中调用多个线程时，这几个线程并不是按照顺序执行的。
 4.线程的5种状态。1.新建(new),2.就绪（runnable）3,运行（running）,4.阻塞（blocked），5.死亡（dead）。
 5.super关键字用于子类调用父类的属性和构造方法。调用父类构造哪个方法取决于super(参数)，参数去匹配。
