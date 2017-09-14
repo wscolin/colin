@@ -185,4 +185,5 @@ grant dba to ldrksys;
    union 
    --子节点遍历
    select * from t_department d start with d.parentdepartid='2389' connect by prior d.departid = d.parentdepartid;
+   72.java substring（0,8）不包含第八位
 
