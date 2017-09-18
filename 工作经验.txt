@@ -187,3 +187,4 @@ grant dba to ldrksys;
    select * from t_department d start with d.parentdepartid='2389' connect by prior d.departid = d.parentdepartid;
    72.java substring（0,8）不包含第八位
 
+73.spring boot 打war包时,工程中不能有main方法
