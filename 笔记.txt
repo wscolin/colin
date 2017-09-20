@@ -1,2 +1,1 @@
-1.ѧϰgit
-2.ѧϰbootstrap
+1.命令pwd，ls 在window和linux通用的
