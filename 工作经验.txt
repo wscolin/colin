@@ -188,3 +188,4 @@ grant dba to ldrksys;
 72.java substring（0,8）不包含第八位
 73.spring boot 打war包时,工程中不能有main方法
 74.telnet ping 端口通不通。 telnet ip地址 端口号 例如 telnet 127.0.0.1 8080
+75.在java中 File 既表示文件又表示目录
