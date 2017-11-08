@@ -1,1 +1,36 @@
-linux命令
+1.解压
+  tar -xzvf apache-tomcat-8.5.23.tar.gz 解压待gz
+  -x：解压
+  -v：显示所有过程
+  -z：有gzip属性的
+  -f: -f是必须的。使用档案名字，切记，这个参数是最后一个参数，后面只能接档案名。
+2.查进程
+  ps -ef|grep 名字
+
+3.重启：reboot
+
+
+4.mysql 命令：
+service mysqld start     
+service mysqld stop      
+service mysqld restart   
+service mysqld status 
+查看端口号
+ show global variables like 'port';
+  登陆
+ mysql -u root -proot
+window上客户链接虚拟机上的mysql需要执行的命令，youpassword 为root密码
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'youpassword' WITH GRANT OPTION;
+
+5.移动文件
+cp -r 目录  目标目录
+
+6.删除文件
+rm -rf 文件名
+
+6.redis 启动 redis-server
+
+7.cat 查看文件最后几行，tail -100f 日志文件 查看最后100行的日志
+8.ping端口 telnet 192.168.25.128 6379  ctrl+] 结束telnet命令
+9.netstat -tnl 6379 查看端口状态
+10.grep 过滤的意思
