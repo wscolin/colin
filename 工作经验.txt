@@ -189,3 +189,4 @@ grant dba to ldrksys;
 73.spring boot 打war包时,工程中不能有main方法
 74.telnet ping 端口通不通。 telnet ip地址 端口号 例如 telnet 127.0.0.1 8080
 75.在java中 File 既表示文件又表示目录
+76.null除了判断用，用于其他都会抛nullpointException  null!=x  null+""会抛空指针异常
