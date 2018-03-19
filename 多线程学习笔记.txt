@@ -27,4 +27,39 @@
     Exectors工厂类来产生线程池。newCachedThreadPoll()
 
 16.ThreadLocal没有弄明白
-                                                                                                                         
+
+
+17。ExecutorService executorService= Executors.newFixedThreadPool(10);  用于多线程很好用，多线程类似于jquery的异步请求。不程序顺序执行，但主线程是按顺序执行的。  
+ ExecutorService executorService= Executors.newFixedThreadPool(10);
+      /*  for(int i=0;i<2;i++){
+            long start =  new Date().getTime();
+            System.out.println("--start--:"+start);
+            executorService.execute(new Ticket());
+
+            long end = new Date().getTime();
+            System.out.println("--共耗时--："+(end-start));
+        }
+        executorService.shutdown();
+        System.out.println("tt");
+        System.out.println("结束");*/
+       Ticket ticket =  new Ticket();
+
+     /*   long start =  new Date().getTime();
+        new Thread(t).start();
+        new Thread(ticket).start();
+        long end =   new Date().getTime();
+        System.out.println(end - start);*/
+
+    }
+
+}
+class Ticket implements Runnable {
+    private int ticket = 50;
+    public void run() {
+        while (ticket > 0) {
+            ticket--;
+            System.out.println("当前票数为：" + ticket+" " +Thread.currentThread().getName());
+        }
+
+    }
+}
