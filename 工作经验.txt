@@ -192,3 +192,5 @@ grant dba to ldrksys;
 76.null除了判断用，用于其他都会抛nullpointException  null!=x  null+""会抛空指针异常
 77.mybatis中test 比较，用test="fz=1"不要写成test="fz='2'"
 78.绿色版mysql安装命令 mysqld -install MySQL --defaults-file=D:\mysql-5.6.36-winx64\my.ini
+
+79.execel 中的VLOOKUP（筛选的条件，查找的范围，返回哪一列数据，精确查找）.
