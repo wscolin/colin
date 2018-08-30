@@ -34,3 +34,4 @@ rm -rf 文件名
 8.ping端口 telnet 192.168.25.128 6379  ctrl+] 结束telnet命令
 9.netstat -tnl 6379 查看端口状态
 10.grep 过滤的意思
+11.chkconfig sshd on 开机启动sshd服务
