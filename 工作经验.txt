@@ -196,3 +196,4 @@ grant dba to ldrksys;
 79.execel 中的VLOOKUP（筛选的条件，查找的范围，返回哪一列数据，精确查找）.
 80.同一台电脑上启用多个tomcat，需要改三个地方
 81.http请求返回json格式  {"data":111}  默认有一个object参数来接受json对象。 比如 success:function(json){} json就是个参数 json.data
+82.map遍历移除key，需要用迭代器iterator,list移除元素需要冲最高序号开始遍历。
