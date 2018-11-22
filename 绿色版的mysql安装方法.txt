@@ -1,0 +1,8 @@
+1.解压放在自己喜欢的目录下
+2.配置环境变量
+3.把my.ini文件放在与bin同一级目录下,my.ini文件主要是用于设置端口，字符集，数据库文件，数据库主目录等
+4.以管理员身份运行cmd
+5.执行mysqld install
+6.执行mysql命令
+7.修改密码命令 set password for 'root'@'localhost' = PASSWORD('new_password');
+8.在window服务设置开机自动启动
