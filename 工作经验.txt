@@ -198,3 +198,4 @@ grant dba to ldrksys;
 81.http请求返回json格式  {"data":111}  默认有一个object参数来接受json对象。 比如 success:function(json){} json就是个参数 json.data
 82.map遍历移除key，需要用迭代器iterator,list移除元素需要冲最高序号开始遍历。
 83. select * from a where not exists (select 1 from b where b.id=a.id) 
+84.在spring中事务配置中，如果一个没有事务的方法调用有事务的方法，事务会失效。应该把有事务的方法放到另外一个service中。
