@@ -200,3 +200,4 @@ grant dba to ldrksys;
 83. select * from a where not exists (select 1 from b where b.id=a.id) 
 84.在spring中事务配置中，如果一个没有事务的方法调用有事务的方法，事务会失效。应该把有事务的方法放到另外一个service中。
 85.oralce链接地址新写法：jdbc:oracle:thin:@(description=(address=(protocol=tcp)(port=1521)(host=10.190.121.95))(connect_data=(service_name=sxzhdb)))
+86.如果是用sum(case when...)统计,  不满足条件统计为0
