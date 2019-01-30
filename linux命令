@@ -35,4 +35,4 @@ rm -rf 文件名
 9.netstat -tnl 6379 查看端口状态
 10.grep 过滤的意思
 11.chkconfig sshd on 开机启动sshd服务
-12.授权chmod 777 
+12.授权chmod -R 777 
