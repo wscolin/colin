@@ -202,3 +202,4 @@ grant dba to ldrksys;
 85.oralce链接地址新写法：jdbc:oracle:thin:@(description=(address=(protocol=tcp)(port=1521)(host=10.190.121.95))(connect_data=(service_name=sxzhdb)))
 86.如果是用sum(case when...)统计,  不满足条件统计为0
 87.io 流用过后，记得关闭。
+88.netstat -ano，列出所有端口的情况    netstat -aon|findstr "端口号" 查看被占用端口对应的PID  继续输入tasklist|findstr "2720"，回车，查看是哪个进程或者程序占用了2720端口
