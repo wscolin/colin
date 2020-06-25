@@ -1,0 +1,29 @@
+1.切换分支
+  git checkout 分支名称
+  切换远程分支
+  git checkout -b master origin/master
+2.新建分支
+  git branch 名称
+3.查看分支
+  git branch -a  --查看所有分支    git branch --查看当前分支  
+4.删除分支
+  git branch -d 分支名称  
+5.克隆代码
+ git clone 地址
+6.添加文件到git版本库
+ git add 文件名   或者git add * 
+ git add . 后者git add -A 提交发生变化的文件
+7.提交文件
+ git commit 文件名 -m 注释
+8.合并dev分支到master
+ git checkout master 
+ git merge dev
+9.将某一个commit的文件合并到master
+ git cherry-pick 版本号    git cherry-pick 192ebdc1
+10.将分支a.txt某一个文件合并到master
+ git checkout master 
+ git checkout --patch fz a.txt
+11. 将分支a.txt某一个文件复制到master
+ git checkout master 
+ git checkout fz a.txt
+ 
