@@ -10,7 +10,7 @@
            在业务系统，地方的文件放在对应的地方目录下 ,每次修改之时，要拿最新代码
 
 
-5.group by 对查询的结果进行分组，但在列值的字段，必须在group by中
+5.group by 对查询的结果进行分组，但在列值的字段，必须在group by中 ，对表分区域处理，有去重的作用，对区域用聚合(集)函数处理。
 
 6.where 与group by having 可以同时使用，where 过滤前面，having过滤后面
 
@@ -179,17 +179,17 @@ grant dba to ldrksys;
 71.oralce start with  xx  connect by prior xx
    start with 子句：遍历起始条件，有个小技巧，如果要查父结点，这里可以用子结点的列，反之亦然。
    connect by 子句：连接条件。关键词prior，prior跟父节点列parentid放在一起，就是往父结点方向遍历；prior跟子结点列subid放在一起，则往叶子结点方向遍历，parentid、subid两列谁放在“=”前都无所谓，关键是prior跟谁在一起。
-   例句：
-   --父节点遍历
-   select * from t_department d where d.departid not in (2389) start with d.departid='2389' connect by  prior d.parentdepartid  =   d.departid
+   例句：
+   --父节点遍历
+   select * from t_department d where d.departid not in (2389) start with d.departid='2389' connect by  prior d.parentdepartid  =   d.departid
    union 
-   --子节点遍历
-   select * from t_department d start with d.parentdepartid='2389' connect by prior d.departid = d.parentdepartid;
+   --子节点遍历
+   select * from t_department d start with d.parentdepartid='2389' connect by prior d.departid = d.parentdepartid;
 72.java substring（0,8）不包含第八位
 73.spring boot 打war包时,工程中不能有main方法
 74.telnet ping 端口通不通。 telnet ip地址 端口号 例如 telnet 127.0.0.1 8080
 75.在java中 File 既表示文件又表示目录
-76.null除了判断用，用于其他都会抛nullpointException  null!=x  null+""会抛空指针异常
+76.null除了判断用，用于其他都会抛nullpointException  null!=x  null+""会抛空指针异常
 77.mybatis中test 比较，用test="fz=1"不要写成test="fz='2'"
 78.绿色版mysql安装命令 mysqld -install MySQL --defaults-file=D:\mysql-5.6.36-winx64\my.ini
 
@@ -203,3 +203,5 @@ grant dba to ldrksys;
 86.如果是用sum(case when...)统计,  不满足条件统计为0
 87.io 流用过后，记得关闭。
 88.netstat -ano，列出所有端口的情况    netstat -aon|findstr "端口号" 查看被占用端口对应的PID  继续输入tasklist|findstr "2720"，回车，查看是哪个进程或者程序占用了2720端口
+89.group by 对表分区域处理，有去重的作用，对区域用聚合(集)函数处理。having是对分组之后进行筛选。分组的列可以不出现在select 列，没有分组的列不能在查询列中。
+90.select 加列 语法  select 值 列名，case when 可以根据需要行转列。
