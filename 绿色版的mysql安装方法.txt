@@ -6,3 +6,25 @@
 6.执行mysql命令
 7.修改密码命令 update user set password=password('123') where user='root' and host='localhost';  或者set password for 'root'@'localhost' = PASSWORD('new_password');
 8.在window服务设置开机自动启动
+
+
+如果出现ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using passwor:yes)问题
+
+1、先停止mysql服务
+
+2、进入mysql的安装路径，找到并打开my.ini文件，找到[mysqld]，在该行下面添加 skip_grant_tables，也就是通知mysql,在登陆的时候跳过密码的验证，保存后退出
+
+3、然后重启mysql服务
+
+4、在控制台输入：mysql -u root -p 弹出输入密码的时候，只需要回车即可进入mysql
+
+5、重设用户root的密码，输入：UPDATE user SET Password=PASSWORD(‘新密码') where USER='root';
+   flush privileges;
+
+6、停止mysql服务
+
+7、 删除在my.ini文件中刚添加的skip_grant_tables这一行
+
+8、保存后重启mysql服务
+
+9、用新密码登陆。
