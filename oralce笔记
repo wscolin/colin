@@ -1,0 +1,19 @@
+1.oracle中，如果是动态游标，不能使用for cur in ..  loop..,只能显式声明游标 例如：
+create or replace procedure mrcolin(
+ ids in  varchar2
+) is
+       TYPE ref_cursor_type IS REF CURSOR;
+       v_sql varchar2(5000);
+       usr ref_cursor_type;
+       v_budget t_budgetoutpayform%rowtype;
+ begin
+   v_sql:='select * from t_budgetoutpayform d where d.pdmsprojectid in('||ids||')';
+   open usr for v_sql;
+   loop 
+     fetch usr into v_budget;
+     exit when usr%notfound;
+       dbms_output.put_line(v_budget.billid);  
+   end loop;
+   close usr;
+
+end    mrcolin;
