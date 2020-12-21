@@ -1,2 +1,4 @@
 1.命令pwd，ls 在window和linux通用的
 google账号：chenguofei1128@gmail.com
+Oracle帐号：2696671285@qq.com
+Oracle密码：Oracle123
