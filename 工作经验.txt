@@ -204,4 +204,6 @@ grant dba to ldrksys;
 87.io 流用过后，记得关闭。
 88.netstat -ano，列出所有端口的情况    netstat -aon|findstr "端口号" 查看被占用端口对应的PID  继续输入tasklist|findstr "2720"，回车，查看是哪个进程或者程序占用了2720端口
 89.group by 对表分区域处理，有去重的作用，对区域用聚合(集)函数处理。having是对分组之后进行筛选。分组的列可以不出现在select 列，没有分组的列不能在查询列中。
-90.select 加列 语法  select 值 列名，case when 可以根据需要行转列。
+90.select 加列 语法  select 值 列名，case when 可以根据需要行转列，或者pivot 分组函数 列名 for in();
+91.不能复制网页的的内容的解决办法：document.body.contentEditable='true'
+
