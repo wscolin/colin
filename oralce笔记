@@ -45,6 +45,4 @@ end    mrcolin;
        逻辑处理;
    end loop;
    close 游标;
-————————————————
-版权声明：本文为CSDN博主「鱼丸丶粗面」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/qq_34745941/article/details/81294166
+
