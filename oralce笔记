@@ -17,3 +17,5 @@ create or replace procedure mrcolin(
    close usr;
 
 end    mrcolin;
+
+2.package的声明：包含两部分1是包声明，2是包体.包和包体要分开执行，否则会报错。
