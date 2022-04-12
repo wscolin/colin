@@ -19,3 +19,32 @@ create or replace procedure mrcolin(
 end    mrcolin;
 
 2.package的声明：包含两部分1是包声明，2是包体.包和包体要分开执行，否则会报错。
+3.游标遍历方式 批量处理
+   open 游标;
+   loop
+      fetch 游标 bulk collect  
+       into 集合变量（也就是 table 类型哦） limit 数值; -- 一般 500 左右
+       
+       exit when 条件; -- cursor.count = 0
+       逻辑处理;
+    end loop;
+    close 游标;
+
+2. 隐式游标
+   for x in (sql 语句) loop
+      逻辑处理;
+   end loop;
+
+3. 单条处理
+   open  游标;
+   loop
+      fetch 游标 
+       into 变量;
+     
+       exit when 条件;
+       逻辑处理;
+   end loop;
+   close 游标;
+————————————————
+版权声明：本文为CSDN博主「鱼丸丶粗面」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/qq_34745941/article/details/81294166
