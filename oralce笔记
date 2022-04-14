@@ -1,3 +1,4 @@
+一、游标
 1.oracle中，如果是动态游标，不能使用for cur in ..  loop..,只能显式声明游标 例如：
 create or replace procedure mrcolin(
  ids in  varchar2
@@ -45,4 +46,4 @@ end    mrcolin;
        逻辑处理;
    end loop;
    close 游标;
-
+二、左连接 left join ，无论是多个left join 都是最左边的为主表，其他为子表，主表的数据全部展示，子表为满足条件以空值填充。（+）方式的连接对面为主表
