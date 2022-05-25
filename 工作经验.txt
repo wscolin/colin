@@ -206,4 +206,4 @@ grant dba to ldrksys;
 89.group by 对表分区域处理，有去重的作用，对区域用聚合(集)函数处理。having是对分组之后进行筛选。分组的列可以不出现在select 列，没有分组的列不能在查询列中。
 90.select 加列 语法  select 值 列名，case when 可以根据需要行转列，或者pivot 分组函数 列名 for in();
 91.不能复制网页的的内容的解决办法：document.body.contentEditable='true'
-
+92.oracle中的union 可以去重复，union all 不去重复，单位两个查询语句对应的列必须一样
