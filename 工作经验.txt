@@ -207,3 +207,4 @@ grant dba to ldrksys;
 90.select 加列 语法  select 值 列名，case when 可以根据需要行转列，或者pivot 分组函数 列名 for in();
 91.不能复制网页的的内容的解决办法：document.body.contentEditable='true'
 92.oracle中的union 可以去重复，union all 不去重复，单位两个查询语句对应的列必须一样
+93.oralce中pivot行转列的语法select*from ()数据列 pivot sum(id)for leib in('语文','数学')，逻辑是：出来聚合函数列和需要行转列，其他的列分组。
