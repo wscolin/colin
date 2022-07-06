@@ -47,3 +47,7 @@ end    mrcolin;
    end loop;
    close 游标;
 二、左连接 left join ，无论是多个left join 都是最左边的为主表，其他为子表，主表的数据全部展示，子表为满足条件以空值填充。（+）方式的连接对面为主表
+三、分析函数group by rollup 小计和合计
+select * from  (select  month,day,case when month is not null and day is not null and area is null then '日小计' 
+  when month is not null and day is  null and area is null then '月小计 ' else area end as area, amt from (select  t.earnmonth day,t.area ,sum(t.personincome)amt ,substr(t.earnmonth,1,6)month from 
+    earnings t group by rollup(substr(t.earnmonth,1,6), t.earnmonth,t.area ))) where area <>'日小计'  or area is null
