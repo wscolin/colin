@@ -1,0 +1,26 @@
+select sum(sal) over(order by deptno) ,--按部门连续求和
+t.sal,ename,t.deptno from emp t ;
+
+select sum(sal) over(partition by deptno order by deptno desc) ,--按部门分组分别求和
+t.sal,ename,t.deptno from emp t ;
+
+
+select row_number() over(order by empno)  --全表排序
+from emp ;
+
+
+select row_number over(partition by deptno order by empno)  --全表排序
+from emp ;
+
+
+select deptno ,mgr,sum(sal) from emp where deptno is not null .
+ group by   rollup (deptno,mgr);--按部门小计汇总
+
+
+select deptno ,mgr,sum(sal) from emp where deptno is not null  
+group by   cube (deptno,mgr) order by deptno,mgr;--分别汇总
+ 
+
+select deptno , grouping(mgr) ,  --grouping（列值）返回本身为空返回1，否则为0
+grouping(deptno),mgr,sum(sal) from emp where deptno is not null  group by   rollup (deptno,mgr);
+
