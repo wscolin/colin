@@ -51,3 +51,32 @@ end    mrcolin;
 select * from  (select  month,day,case when month is not null and day is not null and area is null then '日小计' 
   when month is not null and day is  null and area is null then '月小计 ' else area end as area, amt from (select  t.earnmonth day,t.area ,sum(t.personincome)amt ,substr(t.earnmonth,1,6)month from 
     earnings t group by rollup(substr(t.earnmonth,1,6), t.earnmonth,t.area ))) where area <>'日小计'  or area is null
+select sum(sal) over(order by deptno) ,--按部门连续求和
+t.sal,ename,t.deptno from emp t ;
+
+select sum(sal) over(partition by deptno order by deptno desc) ,--按部门分组分别求和
+t.sal,ename,t.deptno from emp t ;
+
+
+select row_number() over(order by empno)  --全表排序
+from emp ;
+
+
+select row_number() over(partition by deptno order by empno)  --全表排序
+from emp ;
+
+
+select deptno ,mgr,sum(sal) from emp where deptno is not null .
+ group by   rollup (deptno,mgr);--按部门小计汇总
+
+
+select deptno ,mgr,sum(sal) from emp where deptno is not null  
+group by   cube (deptno,mgr) order by deptno,mgr;--分别汇总
+
+
+select deptno , grouping(mgr) ,  --grouping（列值）返回本身为空返回1，否则为0
+grouping(deptno),mgr,sum(sal) from emp where deptno is not null  group by   rollup (deptno,mgr);
+
+
+开窗函数：函数名+over(partition by 分组字段1，分组字段2 order by 排序字段) 。在原来的数据列新增一列，这一列可以是分组情况求和，平均值，最小值，排序等
+
