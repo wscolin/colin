@@ -80,3 +80,9 @@ grouping(deptno),mgr,sum(sal) from emp where deptno is not null  group by   roll
 
 开窗函数：函数名+over(partition by 分组字段1，分组字段2 order by 排序字段) 。在原来的数据列新增一列，这一列可以是分组情况求和，平均值，最小值，排序等
 
+带有逗号的列转化行，with tab as 
+ (select  a.ctrl_id ctrl_id from glb_ctrl a where a.ctrl_id=5)
+SELECT REGEXP_SUBSTR(ctrl_id, '[^,]+', 1, LEVEL) ctrl_id
+  FROM tab
+CONNECT BY LEVEL <= REGEXP_COUNT(ctrl_id, '[^,]+')
+
